@@ -42,3 +42,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set({ "n", "v" ,"i"}, "<c-s>", "<cmd>w<CR><Esc>")
+
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
+

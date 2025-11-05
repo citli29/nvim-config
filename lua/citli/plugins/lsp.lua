@@ -10,7 +10,6 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		config = function()
-			print("hello")
 			require("mason-lspconfig").setup {
 				automatic_enable = {
 					"lua_ls",

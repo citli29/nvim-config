@@ -29,3 +29,18 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+vim.cmd("set pumheight=5") 
+local mason_lspconfig = require("mason-lspconfig")
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "LSP keybindings",
+  callback = function(event)
+    local opts = { buffer = event.buf }
+    vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+  end,
+})
+
